@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
-const SongCard = ({song, i}) => {
+const SongCard = ({ song, i }) => {
 const activeSong = 'Test';
 
 return (
@@ -19,16 +19,16 @@ return (
         <PlayPause />
         </div>
         <img alt="song_img" src={song.images?.coverart} />
-      </div>
+      </div>  
 
       <div className="mt-4 flex flex-col">
-        <p>
-          <Link>
+        <p className="font-semibold text-lg text-white truncate">
+          <Link to={`/songs/${song?.key}`}>
             {song.title}
           </Link>
         </p>
-        <p>
-          <Link>
+        <p className="text-sm truncate text-gray-300 mt-1">
+          <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/topartists'}>
             {song.subtitle}
           </Link>
         </p>
@@ -39,5 +39,3 @@ return (
 };
 
 export default SongCard;
-
-console.log (song.images)
