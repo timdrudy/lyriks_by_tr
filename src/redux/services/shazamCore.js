@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
     export const shazamCoreApi = createApi({
         reducerPath: 'shazamCoreApi',
         baseQuery: fetchBaseQuery({
-            baseUrl: 'https://shazam-core.p.rapidapi.com/v1',
+            baseUrl: 'https://shazam-core.p.rapidapi.com',
             prepareHeaders: (headers) => {
                 headers.set('x-rapidapi-key','ff73586d1dmsh4c6b4caac92d908p12ec08jsn2e94fb373f6c');
 
@@ -12,7 +12,7 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
             },
         }),
         endpoints: (builder) => ({
-            getTopCharts: builder.query({ query: () => '/charts/world?country_code=DZ'}),
+            getTopCharts: builder.query({ query: () => '/v1/charts/world?country_code=DZ'}),
         }),
     });
 
